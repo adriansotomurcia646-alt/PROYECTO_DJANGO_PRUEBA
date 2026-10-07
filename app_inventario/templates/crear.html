@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ accion }} Producto</title>
+</head>
+<body>
+    <div class="card">
+        <h1>{% if accion == 'Editar' %}{% else %}+{% endif %} {{ accion }} Producto</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-guardar"> Guardar</button>
+            <a href="{% url 'inicio' %}" class="btn btn-cancelar">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
